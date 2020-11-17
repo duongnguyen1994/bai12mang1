@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Thực hành] Tạo bàn cờ caro đơn giản</title>
+</head>
+
+<body>
+    <h3>Caro Game Simple</h3>
+    <p id="carogame"></p>
+    <input type="button" value="Change Value" onclick="changeValue()">
+</body>
+<script>
+    let board = [];
+    let data = '';
+    for(let i=0;i<5;i++){
+        board[i] = new Array(0,0,0,0,0);
+    }
+    for(let i= 0;i<5;i++){
+        data +='<br>';
+        for(j=0;j<5;j++){
+            data += board[i][j] + '\xa0\xa0';
+        }
+    }
+    document.getElementById('carogame').innerHTML = data;
+    
+    function changeValue(){
+        let posX = prompt('Nhập vị trí X');
+        let posY = prompt('Nhập vị trí Y');
+        data = '';
+        board[posX][posY] = 'x';
+        for(let i=0;i<5;i++){
+            data +='<br>';
+            for(let j=0;j<5;j++){
+                data += board[i][j] + '\xa0\xa0';
+            }
+        }
+        document.getElementById('carogame').innerHTML = data
+    }
+</script>
+
+</html>
